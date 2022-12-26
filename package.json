@@ -1,87 +1,69 @@
 {
-  "name": "nestjs-task-management",
-  "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "name": "nestjs-course-frontend",
+  "version": "0.1.0",
   "private": true,
-  "license": "UNLICENSED",
-  "scripts": {
-    "prebuild": "rimraf dist",
-    "build": "nest build",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
-    "start:dev": "cross-env STAGE=dev nest start --watch",
-    "start:debug": "cross-env STAGE=dev nest start --watch",
-    "start:prod": "cross-env STAGE=prod node dist/main",
-    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-    "test": "STAGE=dev jest",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
-  },
   "dependencies": {
-    "@hapi/joi": "^17.1.1",
-    "@nestjs/common": "^9.0.0",
-    "@nestjs/config": "^2.2.0",
-    "@nestjs/core": "^9.0.0",
-    "@nestjs/jwt": "^9.0.0",
-    "@nestjs/passport": "^9.0.0",
-    "@nestjs/platform-express": "^9.0.0",
-    "@nestjs/typeorm": "^9.0.1",
-    "@types/passport-jwt": "^3.0.8",
-    "bcrypt": "^5.1.0",
-    "class-transformer": "^0.5.1",
-    "class-validator": "^0.14.0",
-    "dotenv": "^16.0.3",
-    "passport": "^0.6.0",
-    "passport-jwt": "^4.0.0",
-    "pg": "^8.8.0",
-    "reflect-metadata": "^0.1.13",
-    "rimraf": "^3.0.2",
-    "rxjs": "^7.8.0",
-    "typeorm": "^0.3.11"
+    "@material-ui/core": "^4.0.0",
+    "@material-ui/icons": "^4.0.0",
+    "axios": "^0.18.0",
+    "mobx": "^5.9.4",
+    "mobx-react": "^5.4.4",
+    "mobx-react-router": "^4.0.7",
+    "node-sass": "^4.12.0",
+    "query-string": "^6.5.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.0.1",
+    "remove-node-modules": "^1.7.6",
+    "rxjs": "^6.5.2",
+    "styled-components": "^4.2.0",
+    "typescript": "^3.4.5"
+  },
+  "scripts": {
+    "deploy": "sh deploy.sh",
+		"start": "cross-env PORT=3001 react-app-rewired start",
+    "build": "cross-env react-app-rewired build",
+    "test": "cross-env react-app-rewired test --env=jsdom",
+    "eject": "cross-env react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
-    "@nestjs/cli": "^9.0.0",
-    "@nestjs/schematics": "^9.0.0",
-    "@nestjs/testing": "^9.0.0",
-    "@types/express": "^4.17.13",
-    "@types/hapi__joi": "^17.1.8",
-    "@types/jest": "28.1.8",
-    "@types/node": "^16.0.0",
-    "@types/supertest": "^2.0.11",
-    "@types/uuid": "^9.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.0.0",
-    "@typescript-eslint/parser": "^5.0.0",
-    "eslint": "^8.0.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "jest": "28.1.3",
-    "prettier": "^2.3.2",
-    "source-map-support": "^0.5.20",
-    "supertest": "^6.1.3",
-    "ts-jest": "28.0.8",
-    "ts-loader": "^9.2.3",
-    "ts-node": "^10.0.0",
-    "tsconfig-paths": "4.1.0",
-    "typescript": "^4.7.4"
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-decorators": "^7.4.4",
+    "cross-env": "^7.0.3",
+    "customize-cra": "^0.2.12",
+    "react-app-rewired": "^2.1.3"
   },
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "ts"
-    ],
-    "rootDir": "src",
-    "testRegex": ".*\\.spec\\.ts$",
-    "transform": {
-      "^.+\\.(t|j)s$": "ts-jest"
-    },
-    "collectCoverageFrom": [
-      "**/*.(t|j)s"
-    ],
-    "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+  "babel": {
+    "plugins": [
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy": true
+        }
+      ],
+      [
+        "@babel/plugin-proposal-class-properties",
+        {
+          "loose": true
+        }
+      ]
+    ]
   }
 }
